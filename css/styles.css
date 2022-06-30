@@ -110,7 +110,7 @@ h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
 }
 
 h1, .h1 {
-  font-size: calc(1.375rem + 1.5vw);
+  font-size: calc(2.375rem + 1.5vw);
 }
 @media (min-width: 1200px) {
   h1, .h1 {
@@ -2676,6 +2676,7 @@ textarea.form-control-lg {
   padding: 1rem 0.75rem;
   pointer-events: none;
   border: 1px solid transparent;
+  color: #acacac;
   transform-origin: 0 0;
   transition: opacity 0.1s ease-in-out, transform 0.1s ease-in-out;
 }
