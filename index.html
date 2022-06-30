@@ -169,13 +169,14 @@
         </section> -->
         <!-- Contact-->
         <section id="contact">
-            <div class="container px-4 px-lg-5">
+            <div class="container px-5 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-lg-8 col-xl-6 text-center">
                         <h1 class="mt-0 text-white">wa.builder</h1>
                         <hr class="divider" />
-                        <p class="text-white-75 mb-5">This tool help you too start messaging to an unsave number.</p>
-                        <h2 class="text-white-75 mb-5">Paste it, Text it</h2>
+                        <p class="text-white-75">Great tool to help you to start messaging to an unsave number</p>
+                        <p class="text-white-75 mb-5">Just paste any form of phone numbers, it will be converted automatically</p>
+                        <h2 class="text-white mb-5">Paste it, Text it!</h2>
                     </div>
                 </div>
                 <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
@@ -203,17 +204,17 @@
                             </div> -->
                             <!-- Phone number input 1-->
                             <div class="form-floating mb-3">
-                                <input class="form-control" id="phone1" type="tel" placeholder="+60123456789" data-sb-validations="required" />
-                                <label for="phone">E.g., +60123456789</label>
+                                <input class="form-control" id="phone1" type="tel" placeholder="" data-sb-validations="required" />
+                                <label for="phone">Paste number here</label>
                                 <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
                             </div>
                             <p class="text-white-75 text-center">or</p>
                             <!-- Phone number input 2-->
-                            <div class="form-floating mb-3">
+                            <!-- <div class="form-floating mb-3">
                                 <input class="form-control" id="phone2" type="tel" placeholder="0123456789" data-sb-validations="required" />
                                 <label for="phone">E.g., 0123456789</label>
                                 <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
-                            </div>
+                            </div> -->
                             <!-- Message input-->
                             <!-- <div class="form-floating mb-3">
                                 <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
@@ -269,19 +270,20 @@
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
         <script>
             function startmessage(){
-                var phonenumber = "test123";
-                if(document.getElementById("phone1").value)
+                var phonenumber;
+                if(document.getElementById("phone1").value){
                     phonenumber = document.getElementById("phone1").value;
-                else if(document.getElementById("phone2").value)
-                    phonenumber = ("+6" + document.getElementById("phone2").value);
+
+                    if((phonenumber.startsWith("+6") != true))
+                        phonenumber = ("+6"+phonenumber);
+
+                    var composedurl = "";
+                    composedurl = ("https://wa.me/"+phonenumber).replace(/-|\s/g,"");
+
+                    window.open(composedurl, "_blank")
+                }
                 else
-                    alert("Phone number are not inserted! : " + phonenumber);
-
-                var composedurl = "";
-                composedurl = ("https://wa.me/"+phonenumber).replace(/ /g, '');
-
-                window.open(composedurl, "_blank")
-
+                    alert("Phone number are not inserted!");
             }
         </script>
     </body>
